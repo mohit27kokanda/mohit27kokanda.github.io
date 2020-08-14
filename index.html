@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Power2Create</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 8%;
+            top: 0;
+            right: 0;
+            /*            border: 2px solid black;*/
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            max-height: 10px;
+        }
+
+        header ul {
+
+            right: 5%;
+            position: absolute;
+            display: flex;
+            list-style-type: none;
+            float: right;
+        }
+
+        header ul li {
+            display: inherit;
+            padding: 4%;
+            right: 2%;
+            display: block;
+            font-size: 1.3vw;
+            font-weight: 500;
+            /*            color: black;*/
+            text-align: center;
+
+        }
+
+        span {
+            color: red;
+        }
+
+        .slideshow-container {
+            max-width: 2000px;
+            max-height: 762px;
+
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: flex;
+        }
+
+        .slideshow-container .slideshow-inner img {
+            max-height: 762px;
+        }
+
+        .mySlides {
+            display: none;
+            /*            max-height: 800px;*/
+
+
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            height: 200px;
+            width: auto;
+            margin-top: 0;
+            padding: 0;
+            color: rgb(91, 91, 113, 0.0);
+            /*            font-weight: bold;*/
+            font-size: 40px;
+            transition: .6s ease;
+            border-radius: 0 1px 1px 0;
+        }
+
+        .next {
+            right: 1%;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .prev {
+            left: 1%;
+            border-radius: 3px 3px 3px 3px;
+        }
+
+        .text-link {
+            font-family: sans-serif;
+            font-weight: 400;
+            top: 40%;
+            font-size: 1.5vw;
+            display: flex;
+            color: rgb(91, 91, 113, 0.0);
+        }
+
+        /*
+        .prev:hover,
+        .next:hover {
+            color: #f2f2f2;
+            background-color: rgba(0, 0, 0, 0.8)
+        }
+*/
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #222428
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot-div {
+
+            position: absolute;
+            right: 45%;
+            bottom: 5%;
+            width: 13%;
+            height: 2%;
+            display: inline-flex;
+            top: 95%;
+
+
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 0.1rem;
+            width: 20%;
+            margin: 3px;
+            background-color: rgb(229, 147, 142);
+
+            display: inline-block;
+            transition: background-color 0.6s ease;
+
+        }
+
+        .active,
+        .dot:hover {
+            background-color: rgb(204, 22, 22);
+        }
+
+
+
+        /*
+        .vline {
+            height: 100%;
+            width: 5%;
+            position: absolute;
+            color: rgb(91, 91, 113);
+
+        }
+*/
+
+        .vl-line {
+            border-left: 1.5px solid rgb(91, 91, 113, 0.7);
+            height: auto;
+            position: absolute;
+            left: 4%;
+
+            top: 0;
+            bottom: 0;
+
+
+        }
+
+        .vr-line {
+            border-left: 1.5px solid rgb(91, 91, 113, 0.7);
+            height: auto;
+            position: absolute;
+            right: 4%;
+            top: 0;
+            bottom: 0;
+        }
+
+        /*
+        header .imageBox .imageInn {
+        max-height: 60px;
+        max-width: 60px;
+        display: flex;
+        top: 12%;
+        left: 2%;
+        margin-top: 2rem;
+        position: absolute;
+
+        }
+
+        header .imageBox .imageInn img {
+        width: 100%;
+        height: 100%;
+
+
+
+        }
+*/
+
+
+        /*
+        header .imageBox:hover .hoverImg {
+            opacity: 1;
+
+            transition-duration: 1s ease;
+        }
+*/
+
+
+
+
+        /*
+        header .imageBox .hoverImg {
+            position: absolute;
+            left: 7%;
+            top: 10%;
+            display: none;
+            max-height: 100px;
+            max-width: 250px;
+            margin-top: 1.5rem;
+
+
+        }
+
+        header .imageBox .hoverImg img {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+        }
+
+        header .imageBox:hover .hoverImg {
+            opacity: 1;
+            transition: 0.4s ease-in-out;
+            transform: translateX(20px);
+        }
+*/
+
+        /*OLd nav bar*/
+        /*
+        .navbar li a {
+            max-height: 0px;
+           
+            padding: 40px;
+            font-family: sans-serif;
+            text-decoration: none;
+            color: black;
+            font-size: 1.1rem;
+      
+            display: inline-grid;
+
+           
+            font-weight: 300;
+            text-align: justify;
+            text-align-last: justify;
+            text-align-last: justify;
+        }
+
+        
+
+        .navbar li a:hover {
+            transform: translateY(-10px);
+            transition: 0.4s;
+            transition-timing-function: ease-in;
+            transition-timing-function: ease-in-out;
+        }
+
+        .navbar {
+            display: flex;
+            top: 0;
+        }
+
+        .nav {
+            top: -10px;
+            list-style: none;
+            margin: -10px;
+            right: 30%;
+            max-height: 10px;
+            text-align: justify;
+            text-align-last: justify;
+            text-align-last: justify;
+
+        }
+
+        .nav li {
+            display: block;
+
+        }
+
+        .nav a {
+            display: block;
+            text-align: justify;
+            text-align-last: justify;
+            text-align-last: justify;
+            
+        }
+
+        .navbar li a:hover {
+            color: black;
+
+
+        }
+
+        .navbar a:hover {
+            border-bottom: 1px solid black;
+            margin-bottom: 10px;
+
+        }
+*/
+
+        .navbar .button_slide {
+            position: absolute;
+            right: 4%;
+            display: inline-block;
+            margin-top: 4%;
+            font-size: 1.1rem;
+            font-weight: 300;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 0 0 white;
+            -webkit-transition: ease-out 0.4s;
+            -moz-transition: ease-out 0.4s;
+            transition: ease-out 0.4s;
+            width: 12%;
+            height: 410%;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 1.2rem;
+        }
+
+
+
+        .navbar .slide_right:hover {
+            box-shadow: inset -400px 0 0 0 white;
+            background: white;
+        }
+
+        .navbar button {
+            display: inline;
+            background: none;
+            border: none;
+            margin-left: 8rem;
+            /*            padding: 1.5rem;*/
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+
+            /*
+            max-height: 20px;
+            max-width: 100px
+*/
+        }
+
+        .button-div {
+            margin-top: 4.3%;
+            right: 24%;
+
+            position: absolute;
+        }
+
+        .navbar button:hover {
+            border-bottom: 1px solid black;
+            transform: translateY(-10px);
+            transition: 0.4s;
+            transition-timing-function: ease-in;
+            transition-timing-function: ease-in-out;
+
+        }
+
+        .logo-box .logo img {
+            position: absolute;
+            max-width: 5em;
+            max-height: auto;
+            left: 1.5%;
+            margin-top: 2%;
+
+        }
+
+
+        .logo-box .Full-logo {
+            position: absolute;
+            left: 7%;
+            top: 2%;
+            margin-top: 2%;
+            opacity: 0;
+            font-family: sans-serif;
+
+        }
+
+        .logo-box {
+            position: relative;
+        }
+
+        .logo-box:hover .Full-logo {
+            opacity: 1;
+            transform: translateX(10px);
+            transition: 0.4s;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="slideshow-inner">
+            <div class="logo-box">
+                <div class="logo">
+                    <img src="img/arc_favicon.png">
+                    <!--                        <img src="img/quote.png">-->
+                </div>
+                <div class="Full-logo">
+                    <h1>Power<span>2</span>Create</h1>
+
+                </div>
+            </div>
+            <header class="nav-bar">
+                <!--
+                <div class="imageBox">
+                    <div class="imageInn">
+                        <img src="img/arc_favicon.png" alt="Default Image">
+                    </div>
+                    <div class="hoverImg">
+                        <h1>Power<span>2</span>Create</h1>
+
+                    </div>
+                </div>
+-->
+
+                <nav class="navbar ">
+                    <div class="button-div">
+                        <button onclick=""><strong>Company</strong></button>
+                        <button onclick=""><strong>Services</strong></button>
+                        <button onclick=""><strong>Blogs</strong></button>
+                        <button onclick=""><strong>Contact Us</strong></button>
+                    </div>
+                    <!--
+                    <ul class="nav">
+
+                        <li><strong>Company</strong></li>
+                        <li><strong>Services</strong></li>
+                        <li><strong>Blogs</strong></li>
+                        <li><strong>Contact Us</strong></li>
+
+                    </ul>
+-->
+                    <div class="button_slide slide_right"><strong>Get a Free Quote</strong></div>
+                </nav>
+            </header>
+            <div class="mySlides fade">
+
+                <img src='img/gif-1920x1080-web&app.gif' style='width: 100%;' alt="sally lightfoot crab" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Fundraising<br> & Valuation</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Idea Identification <br> & Assessment </strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-idea.gif' style='width: 100%;' alt="fighting nazca boobies" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Web<br> & App</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Business <br>Planning</strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-business-planning.gif' style='width: 100%;' alt="otovalo waterfall" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Idea Identification<br> & Assessment</strong></a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Buliding a Legal <br>Foundation</strong></a>
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src='img/gif-legal.gif' style='width: 100%;' alt="pelican" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Business <br>Planning</strong></a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Fundraising <br> & Valuation</strong> </a>
+
+            </div>
+            <div class="mySlides fade">
+
+                <img src='img/gif-fundraiser.gif' style='width: 100%;' alt="pelican" />
+                <a class="prev text-link" onclick='plusSlides(-1)'><strong>Buliding a Legal<br> Foundation</strong> </a>
+                <a class="next text-link" onclick='plusSlides(1)'><strong>Web <br>& App </strong></a>
+
+            </div>
+            <div class="vl-line vline">
+
+            </div>
+            <div class="vr-line vline">
+
+            </div>
+
+        </div>
+
+
+        <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+        <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+
+        <br />
+
+
+        <div class="dot-div" style='text-align: center;'>
+            <span class="dot" onclick='currentSlide(1)'></span>
+            <span class="dot" onclick='currentSlide(2)'></span>
+            <span class="dot" onclick='currentSlide(3)'></span>
+            <span class="dot" onclick='currentSlide(4)'></span>
+            <span class="dot" onclick='currentSlide(5)'></span>
+        </div>
+    </div>
+    <script>
+        var slideIndex = 1;
+
+        var myTimer;
+
+        var slideshowContainer;
+
+        window.addEventListener("load", function() {
+            showSlides(slideIndex);
+            myTimer = setInterval(function() {
+                plusSlides(1)
+            }, 4000);
+
+            slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+
+            slideshowContainer.addEventListener('mouseenter', pause)
+            slideshowContainer.addEventListener('mouseleave', resume)
+        })
+
+
+        function plusSlides(n) {
+            clearInterval(myTimer);
+            if (n < 0) {
+                showSlides(slideIndex -= 1);
+            } else {
+                showSlides(slideIndex += 1);
+            }
+
+
+            if (n === -1) {
+                myTimer = setInterval(function() {
+                    plusSlides(n + 2)
+                }, 4000);
+            } else {
+                myTimer = setInterval(function() {
+                    plusSlides(n + 1)
+                }, 4000);
+            }
+        }
+
+        function currentSlide(n) {
+            clearInterval(myTimer);
+            myTimer = setInterval(function() {
+                plusSlides(n + 1)
+            }, 4000);
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        pause = () => {
+            clearInterval(myTimer);
+        }
+
+        resume = () => {
+            clearInterval(myTimer);
+            myTimer = setInterval(function() {
+                plusSlides(slideIndex)
+            }, 4000);
+        }
+
+    </script>
+</body>
+
+</html>
